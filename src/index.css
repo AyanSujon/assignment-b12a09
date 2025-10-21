@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+nav ul li .active{
+@apply text-blue-500;
+}
