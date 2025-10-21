@@ -6,12 +6,12 @@ const Navbar = () => {
     const links = <>
     <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
     <li><NavLink to={"/profile"} className={"font-semebold"}>Profile</NavLink></li>
-    <li><NavLink to={"/others"}className={"font-semebold"}>Others</NavLink></li>
+    <li><NavLink to={"/games"}className={"font-semebold"}>Games</NavLink></li>
    </>
     return (
-        <nav className='shadow-sm'>
+        <nav className='shadow-sm hover-black'>
             <Container>
-                <div className="navbar bg-base-100 ">
+                <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -23,15 +23,16 @@ const Navbar = () => {
                             {links}
                     </ul>
                     </div>
-                    <Link to={"/"} className=" text-xl font-bold text-blue-500">GameHub</Link>
+                    <Link to={"/"} className=" text-xl font-bold text-primary">GameHub</Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+
+                <div className="navbar-end">
+                <div className=" hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to={"/signin"}  className={"btn bg-black hover:bg-blue-500 text-white"}>Sign in</Link>
+                    <Link to={"/signin"}  className={"btn bg-primary hover:bg-[#eb3154] text-white"}>Sign in</Link>
                 </div>
                 </div>
             </Container>

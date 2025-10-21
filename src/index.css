@@ -5,18 +5,23 @@
 @plugin "daisyui";
 
 
+.hover-black{
+    background-color: #181c23;
+}
+.hover-red{
+    background-color: #eb3154;
+}
 @plugin "daisyui/theme" {
   name: "dark";
   default: true;
-  --color-primary: #dd163b;
-  --color-primary-hover: #eb3154;
-  --color-secondary: #17161a;
-  --color-secondary-hover: #181c23;
+  --color-primary: #dd163b; /* red 1*/
+  --color-secondary: #17161a; /*Black 1*/
+  /* --color-base-200: #181c23; Black 2 */
   --color-accent: #fff;
 } 
 
 nav ul li .active{
-@apply text-blue-500;
+@apply text-primary;
 }
 *{
     font-family: "Barlow", sans-serif;

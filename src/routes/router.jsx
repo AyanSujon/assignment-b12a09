@@ -6,6 +6,7 @@ import Loading from "../pages/Loading";
 import Profile from "../pages/Profile";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
+import Games from "../pages/Games";
 
 
 const router = createBrowserRouter([
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
             element: <Profile/>,
         },
         {
-            path: "/others",
-            element: <Profile/>,
+            path: "/games",
+            element: <Games/>,
         },
         {
             path: '/signin',
