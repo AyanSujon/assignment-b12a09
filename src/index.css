@@ -5,7 +5,7 @@
 @plugin "daisyui";
 
 
-/* @plugin "daisyui/theme" {
+@plugin "daisyui/theme" {
   name: "dark";
   default: true;
   --color-primary: #dd163b;
@@ -13,7 +13,7 @@
   --color-secondary: #17161a;
   --color-secondary-hover: #181c23;
   --color-accent: #fff;
-} */
+} 
 
 nav ul li .active{
 @apply text-blue-500;
