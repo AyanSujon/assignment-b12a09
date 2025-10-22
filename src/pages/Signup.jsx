@@ -1,25 +1,24 @@
 import React, {  useContext, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { toast } from 'react-toastify';
-import {  sendEmailVerification, updateProfile } from 'firebase/auth';
 import { IoEyeOff } from 'react-icons/io5';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const Signup = () => {
       const [show, setShow] = useState(false);
-    const {createUserWithEmailAndPasswordFunction} = useContext(AuthContext);
+    const {createUserWithEmailAndPasswordFunction, updateProfileFunction, sendEmailVerificationFunction } = useContext(AuthContext);
 
 
 
 
     const handleSignup = (e)=> {
         e.preventDefault();
-        const name = e.target.name?.value;
-        const photo = e.target.photo?.value;
+        const displayName = e.target.name?.value;
+        const photoURL = e.target.photo?.value;
         const email = e.target.email?.value;
         const password = e.target.password?.value;
-        console.log("signup function entered.", {name, photo, email, password});
+        // console.log("signup function entered.", {displayName, photoURL, email, password});
 
         if(password.length < 8){
             toast.error("Password should be at least 6 Digit.");
@@ -43,12 +42,13 @@ const Signup = () => {
         .then(res => {
             
             // Step-2:  Uptade Profile 
-            updateProfile(res.user, {
-        
-                 displayName: name, photoURL: photo,
-            }).then(() => {
+            // updateProfile(res.user, {displayName: name, photoURL: photo,})
+            updateProfileFunction(displayName, photoURL)
+            .then(() => {
                 // Step-3: Email Verification 
-                sendEmailVerification(res.user).then(res => {
+                // sendEmailVerification(res.user)
+                sendEmailVerificationFunction()
+                .then(res => {
                     console.log(res);
                     toast.success("Signup Successfull! Check your Email to Activate your account.");
                 }).catch(e => {
@@ -117,17 +117,17 @@ console.log(res);
                 <fieldset className="fieldset text-white">
                 {/* Name */}
                 <label className="label">Name</label>
-                <input type="text" name='name' className="input bg-white/10 backdrop-blur-sm" placeholder="Your name" />
+                <input type="text" name='name' required className="input bg-white/10 backdrop-blur-sm" placeholder="Your name" />
                 {/* PhotoURL */}
                 <label className="label">PhotoURL</label>
-                <input type="text" name='photo' className="input bg-white/10 backdrop-blur-sm" placeholder="Your PhotoURL" />
+                <input type="text" name='photo' required className="input bg-white/10 backdrop-blur-sm" placeholder="Your PhotoURL" />
                 {/* Email */}
                 <label className="label">Email</label>
-                <input type="email" name='email' className="input bg-white/10 backdrop-blur-sm" placeholder="Email" />
+                <input type="email" name='email' required className="input bg-white/10 backdrop-blur-sm" placeholder="Email" />
                 {/* Password */}
                 <label className="label">Password</label>
                <div className='relative'>
-                 <input type={show? "text": "password"} name='password' className="input bg-white/10 backdrop-blur-sm" placeholder="Password" />
+                 <input type={show? "text": "password"} name='password' required className="input bg-white/10 backdrop-blur-sm" placeholder="Password" />
                  <span onClick={()=> setShow(!show)} className='absolute right-8 top-[14px] cursor-pointer z-20'>
                     {show? <FaEye/>: <IoEyeOff/>}
                  </span>
