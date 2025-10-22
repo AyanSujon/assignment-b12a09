@@ -7,8 +7,7 @@ import { toast } from 'react-toastify';
 import { auth } from '../../firebase/firebase.config';
 
 const Navbar = () => {
-  const { user, setUser, loading, setLoading } =
-    useContext(AuthContext);
+  const { user, setUser, loading, setLoading } = useContext(AuthContext);
   console.log(user);
 
 

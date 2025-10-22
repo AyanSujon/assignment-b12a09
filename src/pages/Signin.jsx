@@ -1,28 +1,25 @@
 import { GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
 import { Link } from 'react-router';
 import { toast } from 'react-toastify';
-import { auth } from '../firebase/firebase.config';
-
-
-
-const googleProvider = new GoogleAuthProvider();
-const gitHubProvider = new GithubAuthProvider();
+import { AuthContext } from '../Context/AuthContext';
 
 
 const Signin = () => {
-    const [user, setUser] = useState(null);
+
      const [show, setShow] = useState(false);
     //  const [email, setEmail] = useState(null); 
+    const { user,setUser, signInWithEmailAndPasswordFunction, signInWithPopupGoogle, signInWithPopupGitHub, signOutUserFunction, sendPasswordResetEmailFunction} =useContext(AuthContext);
     const emailRef = useRef(null);
     
     
     
 // Google Signin 
      const handleGoogleSignin = ()=> {
-        signInWithPopup(auth, googleProvider)
+        // signInWithPopup(auth, googleProvider)
+        signInWithPopupGoogle()
        .then(res => {
                 console.log(res);
                 setUser(res.user);
@@ -38,7 +35,8 @@ const Signin = () => {
     const handleGitHubSignin = (e)=>{
         e.preventDefault();
         // console.log("GIthub Clicked");
-        signInWithPopup(auth, gitHubProvider)
+        // signInWithPopup(auth, gitHubProvider)
+        signInWithPopupGitHub()
         .then(res => {
                 console.log(res);
                 setUser(res.user);
@@ -75,7 +73,9 @@ const Signin = () => {
             }
     
     
-            signInWithEmailAndPassword(auth, email, password).then(res => {
+            // signInWithEmailAndPassword(auth, email, password)
+            signInWithEmailAndPasswordFunction(email, password)
+            .then(res => {
                 if(!res.user?.emailVerified){
                     toast.error("Your email is not verified.")
                     return;
@@ -95,7 +95,7 @@ const handleSignOut = ()=>{
 
 
     console.log("Signout clicked")
-    signOut(auth).then(()=> {
+    signOutUserFunction().then(()=> {
         toast.success("Sign Out Successfull!")
         setUser(null);
     }).catch(e => {
@@ -107,7 +107,9 @@ const handleSignOut = ()=>{
 const handleFrogetPassword =()=> {
 console.log(emailRef.current.value);
 const email = emailRef.current.value;
- sendPasswordResetEmail(auth, email).then(() => {
+//  sendPasswordResetEmail(auth, email)
+sendPasswordResetEmailFunction(email)
+ .then(() => {
     toast.success("Check you email to reset password.");
  }).catch(e=> {
     toast.error(e.message);

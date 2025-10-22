@@ -1,18 +1,14 @@
-import React, {  useState } from 'react';
+import React, {  useContext, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { toast } from 'react-toastify';
-import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+import {  sendEmailVerification, updateProfile } from 'firebase/auth';
 import { IoEyeOff } from 'react-icons/io5';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const Signup = () => {
       const [show, setShow] = useState(false);
-    // const {createUserWithEmailAndPasswordFunction
-
-
-    // } = useContext(AuthContext);
+    const {createUserWithEmailAndPasswordFunction} = useContext(AuthContext);
 
 
 
@@ -42,7 +38,9 @@ const Signup = () => {
 
 
         // Step 1: create user
-        createUserWithEmailAndPassword(auth, email, password).then(res => {
+        // createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPasswordFunction(email, password)
+        .then(res => {
             
             // Step-2:  Uptade Profile 
             updateProfile(res.user, {
