@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '../../Layout/Container';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { auth } from '../../firebase/firebase.config';
 
 const Navbar = () => {
+  const { user, setUser, loading, setLoading } =
+    useContext(AuthContext);
+  console.log(user);
+
+
+  const handleSignout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Signout successful");
+        setUser(null);
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
+
+
+
+
+
+
+
+
+
     const links = <>
     <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
     <li><NavLink to={"/profile"} className={"font-semebold"}>Profile</NavLink></li>
     <li><NavLink to={"/games"}className={"font-semebold"}>Games</NavLink></li>
    </>
+
+
+
     return (
         <nav className='shadow-sm hover-black'>
             <Container>
@@ -32,7 +64,56 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                    <Link to={"/signin"}  className={"btn bg-primary hover:bg-[#eb3154] text-white"}>Sign in</Link>
+
+
+ {loading ? (
+          <p>loading...</p>
+        ) : user ? (
+          <div className="text-center space-y-3">
+            <button
+              className="btn"
+              popoverTarget="popover-1"
+              style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
+            >
+              <img
+                src={user?.photoURL || "https://via.placeholder.com/88"}
+                className="h-[40px] w-[40px] rounded-full mx-auto"
+                alt=""
+              />
+            </button>
+
+            <div
+              className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+              popover="auto"
+              id="popover-1"
+              style={
+                { positionAnchor: "--anchor-1" } /* as React.CSSProperties */
+              }
+            >
+              <h2 className="text-xl font-semibold">{user?.displayName}</h2>
+              <p className="text-white/80">{user?.email}</p>
+              <button onClick={handleSignout} className="my-btn">
+                Sign Out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button className="bg-purple-500 text-white px-4 py-2 rounded-md font-semibold cursor-pointer">
+            <Link to={"/signin"}>Sign in</Link>
+          </button>
+        )}
+
+
+
+
+
+
+
+
+
+
+
+                    {/* <Link to={"/signin"}  className={"btn bg-primary hover:bg-[#eb3154] text-white"}>Sign in</Link> */}
                 </div>
                 </div>
             </Container>
