@@ -3,12 +3,12 @@ import { AuthContext } from '../Context/AuthContext';
 import { toast } from 'react-toastify';
 import { IoEyeOff } from 'react-icons/io5';
 import { FaEye } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Signup = () => {
       const [show, setShow] = useState(false);
-    const {createUserWithEmailAndPasswordFunction, updateProfileFunction, sendEmailVerificationFunction , signInWithPopupGoogle,  signInWithPopupGitHub, setUser, setLoading} = useContext(AuthContext);
-
+    const {createUserWithEmailAndPasswordFunction, updateProfileFunction, sendEmailVerificationFunction ,signOutUserFunction, signInWithPopupGoogle,  signInWithPopupGitHub, setUser, setLoading} = useContext(AuthContext);
+        const navigate = useNavigate();
 
 
 
@@ -19,6 +19,7 @@ const Signup = () => {
         const email = e.target.email?.value;
         const password = e.target.password?.value;
         // console.log("signup function entered.", {displayName, photoURL, email, password});
+
 
         if(password.length < 8){
             toast.error("Password should be at least 6 Digit.");
@@ -51,7 +52,14 @@ const Signup = () => {
                 .then(res => {
                     console.log(res);
                     setLoading(false);
-                    toast.success("Signup Successfull! Check your Email to Activate your account.");
+                    // signput user
+                    signOutUserFunction()
+                    .then(() => {
+                        toast.success("Signup Successfull! Check your Email to Activate your account.");
+                            setUser(null);
+                            navigate("/signin");
+                          })
+
                 }).catch(e => {
                     toast.error(e.message);
                 })
