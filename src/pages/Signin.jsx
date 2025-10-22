@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+
 import React, { useContext, useRef, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
@@ -11,7 +11,7 @@ const Signin = () => {
 
      const [show, setShow] = useState(false);
     //  const [email, setEmail] = useState(null); 
-    const { user, setUser, signInWithEmailAndPasswordFunction, signInWithPopupGoogle, signInWithPopupGitHub, signOutUserFunction, sendPasswordResetEmailFunction} =useContext(AuthContext);
+    const { setUser, signInWithEmailAndPasswordFunction, signInWithPopupGoogle, signInWithPopupGitHub, sendPasswordResetEmailFunction, setLoading} =useContext(AuthContext);
     const emailRef = useRef(null);
   
     
@@ -22,6 +22,7 @@ const Signin = () => {
        .then(res => {
                 console.log(res);
                 setUser(res.user);
+                setLoading(false);
                 toast.success("Signin with Google Successfull!");
             })
             .catch((e)=>{
@@ -40,6 +41,7 @@ const Signin = () => {
                 console.log(res);
                 setUser(res.user);
                 console.log(res.user);
+                setLoading(false);
                 toast.success("Signin with GitHub Successfull!");
             })
             .catch((e)=>{
@@ -81,6 +83,7 @@ const Signin = () => {
                 }
                 console.log(res);
                 setUser(res.user);
+                setLoading(false);
                 toast.success("Signin Successfull!");
             })
             .catch((e)=>{
@@ -90,18 +93,6 @@ const Signin = () => {
         };
 
 
-// const handleSignOut = ()=>{
-
-
-//     console.log("Signout clicked")
-//     signOutUserFunction().then(()=> {
-//         toast.success("Sign Out Successfull!")
-//         setUser(null);
-//     }).catch(e => {
-//         toast.error(e.message);
-//     })
-
-// }
 
 const handleFrogetPassword =()=> {
 console.log(emailRef.current.value);

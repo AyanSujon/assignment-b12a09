@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import Container from '../../Layout/Container';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
-import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { auth } from '../../firebase/firebase.config';
+import Loading from '../../pages/Loading';
+
 
 const Navbar = () => {
   const { user, setUser, loading, setLoading, signOutUserFunction } = useContext(AuthContext);
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                {
+                { loading? <span className="loading loading-ring loading-xl"></span>:
                   user?(
 
                       <div className="dropdown dropdown-end">
