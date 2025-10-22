@@ -73,10 +73,12 @@ const Navbar = () => {
 
                         </div>
                         <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-3 text-center">
+                          <Link to={"/profile"}  className="tooltip" data-tip="Click to Profile">
                            <img className='w-25 mx-auto rounded-full overflow-hidden border border-primary' src={user?.photoURL || "https://i.ibb.co.com/tp3xgXbG/avater.jpg"} alt="Avater" />
+                          </Link>
                           <h2 className='text-xl font-semebold'>{user?.displayName}</h2>
                            <p className='text-white'>{user?.email}</p>
-                          <button onClick={handleSignOut}  className={"btn bg-primary hover:bg-purple-500  text-white"}>Sign Out</button>
+                          <button onClick={handleSignOut}  className={"btn bg-primary hover:bg-[#eb3154]  text-white"}>Sign Out</button>
                         </ul>
                       </div>
                   ): (
