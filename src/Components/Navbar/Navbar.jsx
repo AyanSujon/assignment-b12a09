@@ -3,7 +3,6 @@ import Container from '../../Layout/Container';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
-import Loading from '../../pages/Loading';
 
 
 const Navbar = () => {
@@ -16,6 +15,7 @@ const Navbar = () => {
       .then(() => {
         toast.success("Signout successful");
         setUser(null);
+        setLoading(false)
       })
       .catch((e) => {
         toast.error(e.message);

@@ -7,6 +7,8 @@ import Profile from "../pages/Profile";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import Games from "../pages/Games";
+import PrivateRoute from "./PrivateRoute";
+import GameDetails from "../pages/GameDetails";
 
 
 const router = createBrowserRouter([
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/profile",
-            element: <Profile/>,
+            element: <PrivateRoute><Profile/></PrivateRoute>,
         },
         {
             path: "/games",
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
         {
             path: '/signup',
             element: <Signup/>
+        },
+        {
+            path: '/game-details',
+            element: <PrivateRoute><GameDetails/></PrivateRoute>,
         },
     ]
   },

@@ -2,7 +2,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthContext';
 
@@ -13,6 +13,10 @@ const Signin = () => {
     //  const [email, setEmail] = useState(null); 
     const { setUser, signInWithEmailAndPasswordFunction, signInWithPopupGoogle, signInWithPopupGitHub, sendPasswordResetEmailFunction, setLoading} =useContext(AuthContext);
     const emailRef = useRef(null);
+    const location = useLocation();
+    const from = location.state || "/";
+    const navigate = useNavigate();
+    console.log(location);
   
     
 // Google Signin 
@@ -22,6 +26,7 @@ const Signin = () => {
        .then(res => {
                 console.log(res);
                 setUser(res.user);
+                navigate(from);
                 setLoading(false);
                 toast.success("Signin with Google Successfull!");
             })
@@ -41,6 +46,7 @@ const Signin = () => {
                 console.log(res);
                 setUser(res.user);
                 console.log(res.user);
+                navigate(from);
                 setLoading(false);
                 toast.success("Signin with GitHub Successfull!");
             })
@@ -83,6 +89,7 @@ const Signin = () => {
                 }
                 console.log(res);
                 setUser(res.user);
+                navigate(from);
                 setLoading(false);
                 toast.success("Signin Successfull!");
             })
@@ -101,6 +108,10 @@ const email = emailRef.current.value;
 sendPasswordResetEmailFunction(email)
  .then(() => {
     toast.success("Check you email to reset password.");
+     // Open Gmail in a new tab after success
+      setTimeout(() => {
+        window.open("https://mail.google.com", "_blank");
+      }, 1000);
  }).catch(e=> {
     toast.error(e.message);
  })
