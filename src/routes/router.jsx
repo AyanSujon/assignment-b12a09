@@ -23,10 +23,6 @@ const router = createBrowserRouter([
             element: <Home/>,
         },
         {
-            path: "/profile",
-            element: <PrivateRoute><Profile/></PrivateRoute>,
-        },
-        {
             path: "/games",
             element: <Games/>,
         },
@@ -37,6 +33,10 @@ const router = createBrowserRouter([
         {
             path: '/signup',
             element: <Signup/>
+        },
+        {
+            path: "/profile",
+            element: <PrivateRoute><Profile/></PrivateRoute>,
         },
         {
             path: '/game-details/:id',
