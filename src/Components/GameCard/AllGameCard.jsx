@@ -25,7 +25,7 @@ const AllGameCard = ({ game }) => {
   return (
     <Link
       to={`/game-details/${id}`} 
-      className="bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 w-full max-w-xs"
+      className="bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 "
     >
       <img
         src={coverPhoto}

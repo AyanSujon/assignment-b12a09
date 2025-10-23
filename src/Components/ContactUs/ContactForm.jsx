@@ -19,13 +19,13 @@ const ContactForm = ({ onSubmit }) => {
   };
 
   return (
-    <section className="py-16 bg-base-200">
-      <div className="max-w-lg mx-auto bg-[#181c23] rounded-2xl shadow-md p-8 ">
+    <section className="py-16 px-2 bg-base-200">
+      <div className="max-w-lg mx-auto bg-[#181c23] rounded-2xl shadow-md p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-primary">
           Send Us a Message
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 ">
           <div>
             <label className="label text-sm font-semibold text-white">Name</label>
             <input

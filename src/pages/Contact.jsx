@@ -8,7 +8,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="px-2">
+    <div className="px-2 ">
       <ContactHero />
       {!submitted ? (
         <>
