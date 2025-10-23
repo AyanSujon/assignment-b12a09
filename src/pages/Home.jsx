@@ -22,8 +22,8 @@ const featuredGames = games.slice(3, 6);
 
     return (
         <div>
-            <Container>
             <Hero/>
+            <Container>
             <section>
                 <h2>Fetured Games</h2>
                 <div className='grid grid-cols-3 gap-5'>

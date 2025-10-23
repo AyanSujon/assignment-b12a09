@@ -10,9 +10,7 @@ const Root = () => {
         <div className='flex flex-col min-h-screen bg-secondary'>
             <Navbar/>
             <div className='flex-1'>
-                <Container>
-                    <Outlet/>
-                </Container>
+                <Outlet/>
             </div>
             <Footer/>
             <ToastContainer/>
