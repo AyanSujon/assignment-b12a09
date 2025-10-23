@@ -1,10 +1,12 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { Link } from "react-router";
+
 
 const GameCard = ({ game }) => {
-  const { title, coverPhoto, category, downloadLink, description, ratings, developer } = game;
+  const { id, title, coverPhoto, category, description, ratings, developer } = game;
 
-  const ratingNumber = Number(ratings) || 0; // Ensure it is a number
+  const ratingNumber = Number(ratings) || 0; 
 
   // Function to render 5 stars based on rating
   const renderStars = () => {
@@ -23,7 +25,9 @@ const GameCard = ({ game }) => {
   console.log(renderStars())
 
   return (
-    <div className=" bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+    <>
+    <Link to={`/game-details/${id}`} >
+        <div className=" bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
       {/* Cover Photo */}
       <img src={coverPhoto} alt={title} className="w-full h-48 object-cover" />
 
@@ -47,16 +51,17 @@ const GameCard = ({ game }) => {
         </div>
 
         {/* Download Button */}
-        <a
-          href={downloadLink}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
           className="bg-primary hover:bg-[#eb3154] text-white font-semibold text-center py-2 px-4 rounded-lg transition-colors"
         >
-          Download
-        </a>
+          View Game Details
+        </button>
       </div>
     </div>
+    
+    </Link>
+    
+    </>
   );
 };
 

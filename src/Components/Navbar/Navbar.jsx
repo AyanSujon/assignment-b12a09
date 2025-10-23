@@ -55,7 +55,7 @@ const Navbar = () => {
                             {links}
                     </ul>
                     </div>
-                    <Link to={"/"} className=" text-xl font-bold text-white uppercase ">Game <span className='text-primary'>Hub</span></Link>
+                    <Link to={"/"} className=" text-xl font-bold text-white uppercase ">Game<span className='text-primary'>Hub</span></Link>
                 </div>
 
                 <div className="navbar-end">

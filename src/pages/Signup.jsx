@@ -24,15 +24,15 @@ const Signup = () => {
         // console.log("signup function entered.", {displayName, photoURL, email, password});
 
 
-        if(password.length < 8){
+        if(password.length < 6){
             toast.error("Password should be at least 6 Digit.");
             return;
         }
 
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{8,}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{6,}$/;
         if(!passwordRegex.test(password)){
             toast.error(
-                "❌ Password must be at least 8 characters long and include uppercase, lowercase, number, and special symbol."
+                "❌ Password must be at least 6 characters long and include uppercase, lowercase, number, and special symbol."
             );
             return;
         };
@@ -70,7 +70,7 @@ const Signup = () => {
             }).catch((e)=> {
                 toast.error(e.message);
             })
-console.log(res);
+            console.log(res);
         })
         .catch((e)=>{
             console.log(e.code);
@@ -180,7 +180,6 @@ console.log(res);
                     {show? <FaEye/>: <IoEyeOff/>}
                  </span>
                </div>
-                <div><a className="link link-hover">Forgot password?</a></div>
                 <button className="btn btn-primary mt-4">Sign Up</button>
                 </fieldset>
                 <p className='text-white'>Already have an account? <Link to={"/signin"} className=" text-white hover:text-primary">Sign in</Link></p>
