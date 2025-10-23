@@ -38,7 +38,7 @@ const AllGameCard = ({ game }) => {
         <div>
           <h3 className="text-xl font-bold text-white">{title}</h3>
           <span className="text-sm text-[#dd163b] font-semibold">{category}</span>
-          <div className="flex mt-1">{renderStars()}</div>
+          
         </div>
 
         {/* Description */}
@@ -47,7 +47,10 @@ const AllGameCard = ({ game }) => {
         {/* Developer and Ratings */}
         <div className="flex justify-between items-center">
           <span className="text-gray-400 text-sm">By {developer}</span>
+          <div className="flex items-center gap-1">
+          <div className="flex mt-1">{renderStars()}</div>
           <span className="text-gray-300">{ratings}</span>
+          </div>
         </div>
       </div>
     </Link>

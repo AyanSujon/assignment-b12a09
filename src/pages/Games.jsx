@@ -20,7 +20,7 @@ const AllGames = games;
     return (
         <div className='py-10 bg-secondary'>
            <Container>
-                <div className='grid grid-cols-1 md:grid-cols-4 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                     {
                         AllGames.map( game => <AllGameCard key={game.id} game={game}></AllGameCard>)
                     }

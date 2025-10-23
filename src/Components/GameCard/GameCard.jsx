@@ -23,7 +23,7 @@ const GameCard = ({ game }) => {
   console.log(renderStars())
 
   return (
-    <div className="bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+    <div className=" bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
       {/* Cover Photo */}
       <img src={coverPhoto} alt={title} className="w-full h-48 object-cover" />
 

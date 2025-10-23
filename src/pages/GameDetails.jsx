@@ -35,9 +35,9 @@ const GameDetails = () => {
 
     for (let i = 1; i <= 5; i++) {
       if (i <= fullStars) {
-        stars.push(<FaStar key={i} className="text-yellow-400" />);
+        stars.push(<FaStar key={i} className="text-primary" />);
       } else if (i === fullStars + 1 && halfStar) {
-        stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
+        stars.push(<FaStarHalfAlt key={i} className="text-primary" />);
       } else {
         stars.push(<FaRegStar key={i} className="text-gray-500" />);
       }
@@ -71,7 +71,7 @@ const GameDetails = () => {
 
         {/* Game Info */}
         <div className="space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary">
             {game.title}
           </h1>
 
@@ -80,7 +80,7 @@ const GameDetails = () => {
             <span className="bg-gray-800 px-3 py-1 rounded-full text-sm">
               {game.category}
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-lg">
               {renderStars(parseFloat(game.ratings))}
               <span className="text-gray-300 text-sm">({game.ratings})</span>
             </div>
