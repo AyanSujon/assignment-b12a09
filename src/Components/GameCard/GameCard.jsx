@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 
 const GameCard = ({ game }) => {
-  const { title, coverPhoto, category, downloadLink, ratings, developer } = game;
+  const { title, coverPhoto, downloadLink, ratings, developer } = game;
 
   return (
     <div className="card bg-[#181c23] shadow-xl rounded-2xl hover:shadow-2xl transition-all duration-300">
