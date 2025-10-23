@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             element: <Signup/>
         },
         {
-            path: '/game-details',
+            path: '/game-details/:id',
             element: <PrivateRoute><GameDetails/></PrivateRoute>,
         },
     ]
