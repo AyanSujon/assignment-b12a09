@@ -1,23 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router';
-import Container from '../Layout/Container';
+import React from "react";
+import { Link } from "react-router";
+import { FaHome } from "react-icons/fa";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
+
 
 const Error404 = () => {
-    return (
-  <>
-    <div className='bg-[#F5F5F5] py-10'>
-        <Container>
-            <div className=' mx-auto px-2'>
-              <div className='text-center space-y-3'>
-                <h1 className='text-[#001931] font-semibold text-5xl'>Oops, page not found!</h1>
-                <p className='text-[#627382]'>The App you are requesting is not found on our system.  please try another apps</p>
-                <Link to={"/"} className="btn btn-gradient text-white font-semibold">Go Back!</Link>
-              </div>
-            </div>
-        </Container>
+  return (
+    <div className="min-h-screen flex flex-col bg-secondary text-gray-300">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content */}
+      <main className="flex flex-col items-center justify-center flex-1 px-4 py-20">
+        <h1 className="text-[10rem] font-extrabold text-[#dd163b]">404</h1>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+          Page Not Found
+        </h2>
+        <p className="text-gray-400 mb-6 text-center max-w-md">
+          Oops! The page you are looking for does not exist or has been moved.
+          Check another URL or return to the homepage.
+        </p>
+        <Link
+          to="/"
+          className="flex items-center bg-[#dd163b] hover:bg-[#eb3154] text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+        >
+          <FaHome className="mr-2" /> Go to Home
+        </Link>
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
-    </>
-    );
+  );
 };
 
 export default Error404;

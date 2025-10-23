@@ -1,38 +1,60 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const GameCard = ({ game }) => {
-  const { title, coverPhoto, downloadLink, ratings, developer } = game;
+  const { title, coverPhoto, category, downloadLink, description, ratings, developer } = game;
+
+  const ratingNumber = Number(ratings) || 0; // Ensure it is a number
+
+  // Function to render 5 stars based on rating
+  const renderStars = () => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (ratingNumber >= i) {
+        stars.push(<FaStar key={i} className="text-[#dd163b] mr-1" />);
+      } else if (ratingNumber >= i - 0.5) {
+        stars.push(<FaStarHalfAlt key={i} className="text-[#dd163b] mr-1" />);
+      } else {
+        stars.push(<FaRegStar key={i} className="text-gray-500 mr-1" />);
+      }
+    }
+    return stars;
+  };
+  console.log(renderStars())
 
   return (
-    <div className="card bg-[#181c23] shadow-xl rounded-2xl hover:shadow-2xl transition-all duration-300">
-      <div className="flex justify-between items-center p-3">
-        <h2 className="text-lg font-semibold text-accent">{title}</h2>
-        <a className="  hover:bg-secondary transition p-3 rounded-full shadow  " href={downloadLink} target="_blank" >
-          <FiExternalLink className="text-gray-400 hover:text-primary transition" />
-        </a>
-      </div>
+    <div className="bg-[#17161a] text-gray-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      {/* Cover Photo */}
+      <img src={coverPhoto} alt={title} className="w-full h-48 object-cover" />
 
-      <figure className="px-6 pt-3 ">
-        <img
-          src={coverPhoto}
-          alt={title}
-          className="rounded-full bg-secondary w-full object-fit p-4"
-        />
-      </figure>
+      <div className="p-5 flex flex-col h-full">
+        {/* Title and Category */}
+        <div>
+          <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+          <span className="text-sm text-[#dd163b] font-semibold">{category}</span>
+        </div>
 
-      <div className="card-body px-6 py-3">
-        <p className="text-sm text-accent">{developer}</p>
+        {/* Description */}
+        <p className="text-gray-400 text-sm my-3">{description}</p>
 
-        <div className="flex justify-between items-center mt-2">
-
-          {/* Right side - rating */}
-          <div className="flex items-center text-yellow-500">
-            <FaStar />
-            <span className="text-gray-700 text-sm ml-1">{ratings}</span>
+        {/* Developer and Ratings */}
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-gray-400 text-sm">By {developer}</span>
+          <div className="flex items-center">
+            {renderStars()} 
+            <span className="text-gray-300 ml-2">{ratings}</span>
           </div>
         </div>
+
+        {/* Download Button */}
+        <a
+          href={downloadLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-primary hover:bg-[#eb3154] text-white font-semibold text-center py-2 px-4 rounded-lg transition-colors"
+        >
+          Download
+        </a>
       </div>
     </div>
   );

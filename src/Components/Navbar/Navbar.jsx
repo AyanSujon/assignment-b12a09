@@ -40,7 +40,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className='shadow-sm hover-black'>
+        <nav className='shadow-sm hover-black '>
             <Container>
                 <div className="navbar">
                 <div className="navbar-start">
