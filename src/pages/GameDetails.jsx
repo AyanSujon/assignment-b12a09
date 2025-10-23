@@ -27,7 +27,7 @@ const GameDetails = () => {
       </div>
     );
 
-  // ⭐ Dynamic Rating Stars Renderer
+  // Dynamic Rating Stars Renderer
   const renderStars = (rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
