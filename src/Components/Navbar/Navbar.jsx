@@ -35,6 +35,7 @@ const Navbar = () => {
     <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
     <li><NavLink to={"/games"}className={"font-semebold"}>Games</NavLink></li>
     <li><NavLink to={"/about-us"} className={"font-semebold"}>About Us</NavLink></li>
+    <li><NavLink to={"/contact"} className={"font-semebold"}>Contact</NavLink></li>
    </>
 
 

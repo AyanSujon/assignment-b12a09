@@ -10,6 +10,7 @@ import Games from "../pages/Games";
 import PrivateRoute from "./PrivateRoute";
 import GameDetails from "../pages/GameDetails";
 import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/Contact";
 
 
 const router = createBrowserRouter([
@@ -29,15 +30,19 @@ const router = createBrowserRouter([
         },
         {
             path: "/about-us",
-            element: <AboutUs/>
+            element: <AboutUs/>,
+        },
+        {
+            path: "/contact",
+            element: <ContactUs/>,
         },
         {
             path: '/signin',
-            element: <Signin/>
+            element: <Signin/>,
         },
         {
             path: '/signup',
-            element: <Signup/>
+            element: <Signup/>,
         },
         {
             path: "/profile",
