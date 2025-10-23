@@ -3,9 +3,12 @@ import { Link } from "react-router";
 import { FaHome } from "react-icons/fa";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import useTitle from "../Hooks/useTitle";
 
 
 const Error404 = () => {
+      // for changing Page title Dynamically.
+    useTitle("Error 404 found");
   return (
     <div className="min-h-screen flex flex-col bg-secondary text-gray-300">
       {/* Navbar */}

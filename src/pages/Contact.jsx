@@ -3,8 +3,11 @@ import ContactHero from "../Components/ContactUs/ContactHero";
 import ContactForm from "../Components/ContactUs/ContactForm";
 import ContactInfo from "../Components/ContactUs/ContactInfo";
 import ContactSucces from "../Components/ContactUs/ContactSuccess";
+import useTitle from "../Hooks/useTitle";
 
 const Contact = () => {
+      // for changing Page title Dynamically.
+    useTitle("Contact");
   const [submitted, setSubmitted] = useState(false);
 
   return (

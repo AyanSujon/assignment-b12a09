@@ -8,9 +8,12 @@ import Container from '../Layout/Container';
 import Newsletter from '../Components/Newsletter';
 import AmazingFeatures from '../Components/AmazingFeatures/AmazingFeatures';
 import AboutGamehub from '../Components/AboutGamehub/AboutGamehub';
+import useTitle from '../Hooks/useTitle';
 
 const Home = () => {
 
+        // for changing Page title Dynamically.
+    useTitle("Home");
     const { games, loading, error }  =useGames();
         if(loading){
         return <Loading/>;

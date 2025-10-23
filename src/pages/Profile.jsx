@@ -1,8 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { toast } from 'react-toastify';
+import useTitle from '../Hooks/useTitle';
 
 const Profile = () => {
+      // for changing Page title Dynamically.
+    useTitle("Profile");
     const { user, setLoading,  updateProfileFunction } = useContext(AuthContext);
     const ExistingDisplayName = user?.displayName;
     const ExistingPhotoURL = user?.photoURL;

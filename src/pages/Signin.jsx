@@ -5,10 +5,12 @@ import { IoEyeOff } from 'react-icons/io5';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthContext';
+import useTitle from '../Hooks/useTitle';
 
 
 const Signin = () => {
-
+    // for changing Page title Dynamically.
+    useTitle("Signin");
      const [show, setShow] = useState(false);
     //  const [email, setEmail] = useState(null); 
     const { setUser, signInWithEmailAndPasswordFunction, signInWithPopupGoogle, signInWithPopupGitHub, sendPasswordResetEmailFunction, setLoading} =useContext(AuthContext);

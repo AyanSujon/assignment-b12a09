@@ -4,8 +4,11 @@ import { toast } from 'react-toastify';
 import { IoEyeOff } from 'react-icons/io5';
 import { FaEye } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router';
+import useTitle from '../Hooks/useTitle';
 
 const Signup = () => {
+        // for changing Page title Dynamically.
+    useTitle("Signup");
       const [show, setShow] = useState(false);
     const {createUserWithEmailAndPasswordFunction, updateProfileFunction, sendEmailVerificationFunction ,signOutUserFunction, signInWithPopupGoogle,  signInWithPopupGitHub, setUser, setLoading} = useContext(AuthContext);
         const navigate = useNavigate();

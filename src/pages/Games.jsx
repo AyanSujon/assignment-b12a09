@@ -4,8 +4,11 @@ import AllGameCard from '../Components/GameCard/AllGameCard';
 import useGames from '../Hooks/useGames';
 import Loading from './Loading';
 import Error404 from './Error404';
+import useTitle from '../Hooks/useTitle';
 
 const Games = () => {
+    // for changing Page title Dynamically.
+    useTitle("Games");
 
         const { games, loading, error }  =useGames();
         if(loading){
@@ -17,6 +20,7 @@ const Games = () => {
 
 
 const AllGames = games;
+
     return (
         <div className='py-10 bg-secondary'>
            <Container>

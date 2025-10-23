@@ -5,11 +5,17 @@ import useGames from "../Hooks/useGames";
 import GameNotFound from "./GameNotFound";
 import Newsletter from "../Components/Newsletter";
 import Container from "../Layout/Container";
+import useTitle from "../Hooks/useTitle";
+
 
 
 const GameDetails = () => {
+     // for changing Page title Dynamically.
+  useTitle("Game Details");
+
   const { id } = useParams();
   const { games, error } = useGames();
+
 
   if (error)
     return (
@@ -20,12 +26,15 @@ const GameDetails = () => {
 
   const game = games.find((p) => String(p.id) === id);
 
+
   if (!game)
     return (
       <div className="text-center text-gray-400 mt-10">
         <GameNotFound/>
       </div>
     );
+
+
 
   // Dynamic Rating Stars Renderer
   const renderStars = (rating) => {
@@ -45,6 +54,8 @@ const GameDetails = () => {
 
     return <div className="flex items-center gap-1">{stars}</div>;
   };
+
+
 
   return (
     <>
