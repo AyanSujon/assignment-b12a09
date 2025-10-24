@@ -1,9 +1,9 @@
 
 # 🎮 GameHub - A Game Library
 
-**Developed by:** [Ayan Sujon](https://github.com/programming-hero-web-course2/b12-a9-firesheild-AyanSujon.git)  
+**Developed by:** [Ayan Sujon](https://www.ayansujon.com/)  
 🌐 **Live Site:** [https://assignment-b12a09.netlify.app/](https://assignment-b12a09.netlify.app/)  
-💻 **GitHub Repository:** [GameHub Repo](https://github.com/programming-hero-web-course2/b12-a9-firesheild-AyanSujon.git)
+💻 **Private GitHub Repository:** [GameHub Repo](https://github.com/programming-hero-web-course2/b12-a9-firesheild-AyanSujon.git)
 
 ---
 
