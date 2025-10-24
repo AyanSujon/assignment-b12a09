@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const Newsletter = () => {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,16 +23,16 @@ const Newsletter = () => {
   return (
     <section className="w-full bg-base-200 py-16 px-4 flex justify-center items-center rounded-2xl my-10">
       <div className="max-w-2xl w-full text-center">
-        <h2 className="text-3xl font-bold mb-4 text-primary">
+        <h2 className="left-side-animation-gsap text-3xl font-bold mb-4 text-primary">
           Subscribe to Our Newsletter
         </h2>
-        <p className="text-gray-600 mb-8">
+        <p className="right-side-animation-gsap text-gray-600 mb-8">
           Stay updated with our latest news, articles, and exclusive offers.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className=" middle-animation-gsap flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <input
             type="text"

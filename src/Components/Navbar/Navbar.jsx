@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Container from '../../Layout/Container';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import gsap from 'gsap';
 
 
 const Navbar = () => {
+  
   const { user, setUser, loading, setLoading, signOutUserFunction } = useContext(AuthContext);
   console.log(user);
 
@@ -23,8 +25,20 @@ const Navbar = () => {
   };
 
 
+useEffect(() => {
+  const ctx = gsap.context(() => {
+    gsap.from("nav ul li", {
+      y: -30,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.15,
+      delay: 0.1, // small delay helps ensure visibility
+    });
+  });
 
-
+  return () => ctx.revert(); // cleanup
+}, []);
 
 
 
@@ -37,7 +51,6 @@ const Navbar = () => {
     <li><NavLink to={"/about-us"} className={"font-semebold"}>About Us</NavLink></li>
     <li><NavLink to={"/contact"} className={"font-semebold"}>Contact</NavLink></li>
    </>
-
 
 
     return (

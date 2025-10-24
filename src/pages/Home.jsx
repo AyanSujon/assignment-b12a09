@@ -9,8 +9,10 @@ import Newsletter from '../Components/Newsletter';
 import AmazingFeatures from '../Components/AmazingFeatures/AmazingFeatures';
 import AboutGamehub from '../Components/AboutGamehub/AboutGamehub';
 import useTitle from '../Hooks/useTitle';
+import useGsapScrollAnimation from '../Hooks/useGsapScrollAnimation';
 
 const Home = () => {
+       useGsapScrollAnimation(); // activate animations
 
         // for changing Page title Dynamically.
     useTitle("Home");

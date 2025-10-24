@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 
+
 const Hero = () => {
   const carouselRef = useRef(null);
 
@@ -23,6 +24,9 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+
+
+ 
   return (
 
     <div className="w-full h-screen flex justify-center items-center overflow-hidden">
