@@ -133,7 +133,7 @@ Crafted using **TailwindCSS** and **DaisyUI** for an adaptive and elegant user i
 
 ## 📦 Resources
 
-**DOcuments**: [Google Docs][https://drive.google.com/open?id=1dy7ku5aMlyvQawTdy0syLY7elRN6I-zh&amp%3Busp=drive_copy&usp=drive_copy]
+**DOcuments**: [Google Docs](https://drive.google.com/open?id=1dy7ku5aMlyvQawTdy0syLY7elRN6I-zh&amp%3Busp=drive_copy&usp=drive_copy)
 
 
 
