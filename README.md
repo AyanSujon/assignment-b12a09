@@ -95,7 +95,8 @@ Crafted using **TailwindCSS** and **DaisyUI** for an adaptive and elegant user i
 
 ## 📦 NPM Packages Used
 
-### **Dependencies**
+## ⚙️ Dependencies
+
 
 "@tailwindcss/vite": "^4.1.15",
 "axios": "^1.12.2",
@@ -107,11 +108,11 @@ Crafted using **TailwindCSS** and **DaisyUI** for an adaptive and elegant user i
 "react-router": "^7.9.4",
 "react-toastify": "^11.0.5",
 "tailwindcss": "^4.1.15"
+
 ---
 
 
 ### **Dev Dependencies**
-
 "@eslint/js": "^9.36.0",
 "@types/react": "^19.1.16",
 "@types/react-dom": "^19.1.9",
