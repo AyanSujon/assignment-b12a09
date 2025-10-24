@@ -52,8 +52,8 @@ const Signup = () => {
                 // Step-3: Email Verification 
                 // sendEmailVerification(res.user)
                 sendEmailVerificationFunction()
-                .then(res => {
-                    console.log(res);
+                .then(() => {
+                    // console.log(res);
                     setLoading(false);
                     // signput user
                     signOutUserFunction()
@@ -112,7 +112,7 @@ const Signup = () => {
         // signInWithPopup(auth, googleProvider)
         signInWithPopupGoogle()
        .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
                 setLoading(false);
                 toast.success("Signin with Google Successfull!");
@@ -130,9 +130,9 @@ const Signup = () => {
         // signInWithPopup(auth, gitHubProvider)
         signInWithPopupGitHub()
         .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
-                console.log(res.user);
+                // console.log(res.user);
                 setLoading(false);
                 toast.success("Signin with GitHub Successfull!");
             })

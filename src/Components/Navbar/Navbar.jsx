@@ -9,7 +9,7 @@ import gsap from 'gsap';
 const Navbar = () => {
   
   const { user, setUser, loading, setLoading, signOutUserFunction } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
 
   const handleSignOut = () => {

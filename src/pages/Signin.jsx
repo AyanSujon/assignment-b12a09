@@ -18,7 +18,7 @@ const Signin = () => {
     const location = useLocation();
     const from = location.state || "/";
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
   
     
 // Google Signin 
@@ -26,7 +26,7 @@ const Signin = () => {
         // signInWithPopup(auth, googleProvider)
         signInWithPopupGoogle()
        .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
                 navigate(from);
                 setLoading(false);
@@ -45,9 +45,9 @@ const Signin = () => {
         // signInWithPopup(auth, gitHubProvider)
         signInWithPopupGitHub()
         .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
-                console.log(res.user);
+                // console.log(res.user);
                 navigate(from);
                 setLoading(false);
                 toast.success("Signin with GitHub Successfull!");
@@ -68,15 +68,15 @@ const Signin = () => {
             const password = e.target.password?.value;
             // console.log("signin function entered.", {email, password});
     
-            if(password.length < 8){
+            if(password.length < 6){
                 toast.error("Password should be at least 6 Digit.");
                 return;
             }
     
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{8,}$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{6,}$/;
             if(!passwordRegex.test(password)){
                 toast.error(
-                    "❌ Password must be at least 8 characters long and include uppercase, lowercase, number, and special symbol."
+                    "❌ Password must be at least 6 characters long and include uppercase, lowercase, number, and special symbol."
                 );
                 return;
             }
@@ -89,7 +89,7 @@ const Signin = () => {
                     toast.error("Your email is not verified.")
                     return;
                 }
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
                 navigate(from);
                 setLoading(false);
@@ -104,7 +104,7 @@ const Signin = () => {
 
 
 const handleFrogetPassword =()=> {
-console.log(emailRef.current.value);
+// console.log(emailRef.current.value);
 const email = emailRef.current.value;
 //  sendPasswordResetEmail(auth, email)
 sendPasswordResetEmailFunction(email)

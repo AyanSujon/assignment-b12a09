@@ -14,7 +14,7 @@ const Profile = () => {
   const [displayName, setdisplayName] = useState(user?.displayName || "");
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
 
-console.log({displayName, photoURL})
+// console.log({displayName, photoURL})
 
 
   const saveProfile = async (e) => {

@@ -15,7 +15,7 @@ const Newsletter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Newsletter Data:", formData);
+    // console.log("Newsletter Data:", formData);
     toast.success("Thank you for subscribing!");
     setFormData({ name: "", email: "" });
   };
