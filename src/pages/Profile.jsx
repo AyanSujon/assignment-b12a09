@@ -7,10 +7,8 @@ const Profile = () => {
       // for changing Page title Dynamically.
     useTitle("Profile");
     const { user, setLoading,  updateProfileFunction } = useContext(AuthContext);
-    const ExistingDisplayName = user?.displayName;
-    const ExistingPhotoURL = user?.photoURL;
 
-        const [isEditing, setIsEditing]= useState(false);
+    const [isEditing, setIsEditing]= useState(false);
   const [displayName, setdisplayName] = useState(user?.displayName || "");
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
 
